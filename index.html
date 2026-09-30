@@ -1,1 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Ania Bajorek — Photographer & Director</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        background: #fff;
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    /* LEFT MENU */
+
+    .menu {
+        position: fixed;
+        left: 24px;
+        top: 24px;
+        width: 180px;
+        z-index: 10;
+    }
+
+    .name {
+        margin-bottom: 35px;
+    }
+
+    .menu-section {
+        margin-bottom: 22px;
+    }
+
+    .menu-section > a {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .submenu {
+        padding-left: 15px;
+    }
+
+    .submenu a {
+        display: block;
+        margin-bottom: 3px;
+    }
+
+    .menu a:hover {
+        text-decoration: underline;
+    }
+
+    /* CONTENT */
+
+    main {
+        margin-left: 225px;
+        padding: 24px 30px 100px 0;
+    }
+
+    section {
+        margin-bottom: 120px;
+    }
+
+    .project {
+        margin-bottom: 90px;
+    }
+
+    .project-title {
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .project-images {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .project-images img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .single-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* CONTACT */
+
+    .contact {
+        max-width: 500px;
+        font-size: 18px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+        .menu {
+            position: relative;
+            left: auto;
+            top: auto;
+            width: auto;
+            padding: 20px;
+        }
+
+        .name {
+            margin-bottom: 25px;
+        }
+
+        main {
+            margin-left: 0;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        .project {
+            margin-bottom: 60px;
+        }
+
+        .project-images {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<nav class="menu">
+
+    <div class="name">
+        <a href="#top">ANIA BAJOREK</a>
+    </div>
+
+    <div class="menu-section">
+        <a href="#film">Film</a>
+
+        <div class="submenu">
+            <a href="#commercial">Commercial</a>
+            <a href="#music-video">Music video</a>
+            <a href="#social">Social campaign</a>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <a href="#photography">Photography</a>
+
+        <div class="submenu">
+            <a href="#commercial-photo">Commercial folio</a>
+            <a href="#la-casa-violeta">La Casa Violeta</a>
+            <a href="#where-wild-things">Where the Wild Things Are</a>
+            <a href="#pocket-pieces">Pocket Pieces</a>
+            <a href="#zodrak">Zodrak</a>
+            <a href="#two-plus-one">2i1</a>
+            <a href="#restuchemistry">Restuchemistry</a>
+        </div>
+    </div>
+
+    <div class="menu-section">
+        <a href="#prints">Prints</a>
+    </div>
+
+    <div class="menu-section">
+        <a href="#contact">Contact</a>
+    </div>
+
+</nav>
+
+
+<main id="top">
+
+    <!-- FILM -->
+
+    <section id="film">
+
+        <div class="project" id="commercial">
+            <div class="project-title">Commercial</div>
+
+            <div class="project-images">
+                <img src="images/film-commercial-01.jpg" alt="">
+                <img src="images/film-commercial-02.jpg" alt="">
+                <img src="images/film-commercial-03.jpg" alt="">
+                <img src="images/film-commercial-04.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="music-video">
+            <div class="project-title">Music video</div>
+
+            <div class="project-images">
+                <img src="images/music-video-01.jpg" alt="">
+                <img src="images/music-video-02.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="social">
+            <div class="project-title">Social campaign</div>
+
+            <div class="project-images">
+                <img src="images/social-01.jpg" alt="">
+                <img src="images/social-02.jpg" alt="">
+                <img src="images/social-03.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PHOTOGRAPHY -->
+
+    <section id="photography">
+
+        <div class="project" id="commercial-photo">
+            <div class="project-title">Commercial folio</div>
+
+            <div class="project-images">
+                <img src="images/commercial-01.jpg" alt="">
+                <img src="images/commercial-02.jpg" alt="">
+                <img src="images/commercial-03.jpg" alt="">
+                <img src="images/commercial-04.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="la-casa-violeta">
+            <div class="project-title">La Casa Violeta</div>
+
+            <div class="project-images">
+                <img src="images/casa-violeta-01.jpg" alt="">
+                <img src="images/casa-violeta-02.jpg" alt="">
+                <img src="images/casa-violeta-03.jpg" alt="">
+                <img src="images/casa-violeta-04.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="where-wild-things">
+            <div class="project-title">Where the Wild Things Are</div>
+
+            <div class="project-images">
+                <img src="images/wild-things-01.jpg" alt="">
+                <img src="images/wild-things-02.jpg" alt="">
+                <img src="images/wild-things-03.jpg" alt="">
+                <img src="images/wild-things-04.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="pocket-pieces">
+            <div class="project-title">Pocket Pieces</div>
+
+            <div class="project-images">
+                <img src="images/pocket-01.jpg" alt="">
+                <img src="images/pocket-02.jpg" alt="">
+                <img src="images/pocket-03.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="zodrak">
+            <div class="project-title">Zodrak</div>
+
+            <div class="project-images">
+                <img src="images/zodrak-01.jpg" alt="">
+                <img src="images/zodrak-02.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="two-plus-one">
+            <div class="project-title">2i1</div>
+
+            <div class="project-images">
+                <img src="images/2i1-01.jpg" alt="">
+                <img src="images/2i1-02.jpg" alt="">
+                <img src="images/2i1-03.jpg" alt="">
+            </div>
+        </div>
+
+
+        <div class="project" id="restuchemistry">
+            <div class="project-title">Restuchemistry</div>
+
+            <div class="project-images">
+                <img src="images/restuchemistry-01.jpg" alt="">
+                <img src="images/restuchemistry-02.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PRINTS -->
+
+    <section id="prints">
+
+        <div class="project-title">Prints</div>
+
+        <div class="project-images">
+            <img src="images/print-01.jpg" alt="">
+            <img src="images/print-02.jpg" alt="">
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="contact">
+
+            <p>
+                Ania Bajorek<br>
+                Photographer & Director
+            </p>
+
+            <p>
+                Warsaw, Poland
+            </p>
+
+            <p>
+                <a href="mailto:hello@aniabajorek.com">
+                    hello@aniabajorek.com
+                </a>
+            </p>
+
+            <p>
+                <a href="https://www.instagram.com/ania_bajorek/" target="_blank">
+                    Instagram
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
