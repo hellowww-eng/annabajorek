@@ -86,15 +86,20 @@
     }
 
     .project-images {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    overflow-x: auto;
+       
     }
-
-    .project-images img {
-        display: block;
-        width: 100%;
-        height: auto;
+   
+   .project-images img {
+    display: block;
+    width: auto;
+    height: 70vh;
+    max-width: none;
+    object-fit: contain;
+      
     }
 
     .single-image img {
