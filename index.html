@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pl">
 
 <head>
@@ -11,7 +10,9 @@
 
 <style>
 
-/* RESET */
+/* =========================
+   PODSTAWOWE
+   ========================= */
 
 * {
     box-sizing: border-box;
@@ -40,7 +41,9 @@ a:hover {
 }
 
 
-/* MENU */
+/* =========================
+   MENU
+   ========================= */
 
 .menu {
     position: fixed;
@@ -65,8 +68,8 @@ a:hover {
 }
 
 .submenu {
-    padding-left: 15px;
     display: none;
+    padding-left: 15px;
 }
 
 .menu-section.active .submenu {
@@ -79,19 +82,27 @@ a:hover {
 }
 
 
-/* MAIN */
+/* =========================
+   GŁÓWNA CZĘŚĆ
+   ========================= */
 
 main {
     margin-left: 240px;
     padding: 25px 30px 100px 0;
 }
 
-section {
-    margin-bottom: 120px;
-}
+
+/* =========================
+   PROJEKTY
+   ========================= */
 
 .project {
+    display: none;
     margin-bottom: 100px;
+}
+
+.project.active {
+    display: block;
 }
 
 .project-title {
@@ -100,7 +111,9 @@ section {
 }
 
 
-/* ZDJĘCIA — POZIOMO */
+/* =========================
+   ZDJĘCIA POZIOMO
+   ========================= */
 
 .project-images {
     display: flex;
@@ -120,7 +133,17 @@ section {
 }
 
 
-/* CONTACT */
+/* =========================
+   PRINTS / CONTACT
+   ========================= */
+
+.simple-section {
+    display: none;
+}
+
+.simple-section.active {
+    display: block;
+}
 
 .contact {
     max-width: 500px;
@@ -128,7 +151,9 @@ section {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 700px) {
 
@@ -149,10 +174,6 @@ section {
         padding: 20px;
     }
 
-    section {
-        margin-bottom: 80px;
-    }
-
     .project {
         margin-bottom: 60px;
     }
@@ -171,121 +192,126 @@ section {
 
 </head>
 
+
 <body>
 
-<!-- MENU -->
+
+<!-- =========================
+     MENU
+     ========================= -->
 
 <nav class="menu">
 
-```
-<div class="name">
-    <a href="#top">ANIA BAJOREK</a>
-</div>
+
+    <div class="name">
+        <a href="#" id="home-link">ANIA BAJOREK</a>
+    </div>
 
 
-<!-- FILM -->
+    <!-- FILM -->
 
-<div class="menu-section">
+    <div class="menu-section">
 
-    <a href="#film" class="menu-toggle">
-        Film
-    </a>
-
-    <div class="submenu">
-
-        <a href="#commercial">
-            Commercial
+        <a href="#" class="menu-toggle">
+            Film
         </a>
 
-        <a href="#music-video">
-            Music video
+        <div class="submenu">
+
+            <a href="#" data-project="commercial">
+                Commercial
+            </a>
+
+            <a href="#" data-project="music-video">
+                Music video
+            </a>
+
+            <a href="#" data-project="social">
+                Social campaign
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PHOTOGRAPHY -->
+
+    <div class="menu-section">
+
+        <a href="#" class="menu-toggle">
+            Photography
         </a>
 
-        <a href="#social">
-            Social campaign
+        <div class="submenu">
+
+            <a href="#" data-project="commercial-photo">
+                Commercial folio
+            </a>
+
+            <a href="#" data-project="la-casa-violeta">
+                La Casa Violeta
+            </a>
+
+            <a href="#" data-project="where-wild-things">
+                Where the Wild Things Are
+            </a>
+
+            <a href="#" data-project="pocket-pieces">
+                Pocket Pieces
+            </a>
+
+            <a href="#" data-project="zodrak">
+                Zodrak
+            </a>
+
+            <a href="#" data-project="two-plus-one">
+                2i1
+            </a>
+
+            <a href="#" data-project="restuchemistry">
+                Restuchemistry
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRINTS -->
+
+    <div class="menu-section">
+
+        <a href="#" class="menu-toggle">
+            Prints
         </a>
 
     </div>
 
-</div>
 
+    <!-- CONTACT -->
 
-<!-- PHOTOGRAPHY -->
+    <div class="menu-section">
 
-<div class="menu-section">
-
-    <a href="#photography" class="menu-toggle">
-        Photography
-    </a>
-
-    <div class="submenu">
-
-        <a href="#commercial-photo">
-            Commercial folio
-        </a>
-
-        <a href="#la-casa-violeta">
-            La Casa Violeta
-        </a>
-
-        <a href="#where-wild-things">
-            Where the Wild Things Are
-        </a>
-
-        <a href="#pocket-pieces">
-            Pocket Pieces
-        </a>
-
-        <a href="#zodrak">
-            Zodrak
-        </a>
-
-        <a href="#two-plus-one">
-            2i1
-        </a>
-
-        <a href="#restuchemistry">
-            Restuchemistry
+        <a href="#" class="menu-toggle">
+            Contact
         </a>
 
     </div>
 
-</div>
-
-
-<!-- PRINTS -->
-
-<div class="menu-section">
-
-    <a href="#prints" class="menu-toggle">
-        Prints
-    </a>
-
-</div>
-
-
-<!-- CONTACT -->
-
-<div class="menu-section">
-
-    <a href="#contact" class="menu-toggle">
-        Contact
-    </a>
-
-</div>
-```
 
 </nav>
 
-<!-- CONTENT -->
 
-<main id="top">
 
-```
-<!-- FILM -->
+<!-- =========================
+     TREŚĆ
+     ========================= -->
 
-<section id="film">
+<main id="content">
 
+
+    <!-- FILM / COMMERCIAL -->
 
     <div class="project" id="commercial">
 
@@ -305,6 +331,8 @@ section {
     </div>
 
 
+    <!-- FILM / MUSIC VIDEO -->
+
     <div class="project" id="music-video">
 
         <div class="project-title">
@@ -320,6 +348,8 @@ section {
 
     </div>
 
+
+    <!-- FILM / SOCIAL -->
 
     <div class="project" id="social">
 
@@ -338,14 +368,7 @@ section {
     </div>
 
 
-</section>
-
-
-
-<!-- PHOTOGRAPHY -->
-
-<section id="photography">
-
+    <!-- PHOTOGRAPHY / COMMERCIAL -->
 
     <div class="project" id="commercial-photo">
 
@@ -365,6 +388,8 @@ section {
     </div>
 
 
+    <!-- LA CASA VIOLETA -->
+
     <div class="project" id="la-casa-violeta">
 
         <div class="project-title">
@@ -382,6 +407,8 @@ section {
 
     </div>
 
+
+    <!-- WHERE THE WILD THINGS ARE -->
 
     <div class="project" id="where-wild-things">
 
@@ -401,6 +428,8 @@ section {
     </div>
 
 
+    <!-- POCKET PIECES -->
+
     <div class="project" id="pocket-pieces">
 
         <div class="project-title">
@@ -418,6 +447,8 @@ section {
     </div>
 
 
+    <!-- ZODRAK -->
+
     <div class="project" id="zodrak">
 
         <div class="project-title">
@@ -433,6 +464,8 @@ section {
 
     </div>
 
+
+    <!-- 2i1 -->
 
     <div class="project" id="two-plus-one">
 
@@ -451,6 +484,8 @@ section {
     </div>
 
 
+    <!-- RESTUCHEMISTRY -->
+
     <div class="project" id="restuchemistry">
 
         <div class="project-title">
@@ -467,61 +502,63 @@ section {
     </div>
 
 
-</section>
+    <!-- PRINTS -->
 
+    <div class="simple-section" id="prints">
 
-
-<!-- PRINTS -->
-
-<section id="prints">
-
-    <div class="project-title">
-        Prints
-    </div>
-
-</section>
-
-
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-    <div class="contact">
-
-        <p>
-            Ania Bajorek<br>
-            Photographer & Director
-        </p>
-
-        <p>
-            Warsaw, Poland
-        </p>
-
-        <p>
-            <a href="mailto:hello@aniabajorek.com">
-                hello@aniabajorek.com
-            </a>
-        </p>
-
-        <p>
-            <a
-                href="https://www.instagram.com/ania_bajorek/"
-                target="_blank">
-                Instagram
-            </a>
-        </p>
+        <div class="project-title">
+            Prints
+        </div>
 
     </div>
 
-</section>
-```
+
+    <!-- CONTACT -->
+
+    <div class="simple-section" id="contact">
+
+        <div class="contact">
+
+            <p>
+                Ania Bajorek<br>
+                Photographer & Director
+            </p>
+
+            <p>
+                Warsaw, Poland
+            </p>
+
+            <p>
+                <a href="mailto:hello@aniabajorek.com">
+                    hello@aniabajorek.com
+                </a>
+            </p>
+
+            <p>
+                <a
+                    href="https://www.instagram.com/ania_bajorek/"
+                    target="_blank">
+                    Instagram
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
 
 </main>
 
-<!-- MENU JAVASCRIPT -->
+
+
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
 
 <script>
+
+
+/* MENU — OTWIERANIE / ZAMYKANIE */
 
 const menuSections = document.querySelectorAll('.menu-section');
 
@@ -529,15 +566,17 @@ menuSections.forEach(section => {
 
     const toggle = section.querySelector('.menu-toggle');
 
-    toggle.addEventListener('click', function() {
+    toggle.addEventListener('click', function(event) {
 
-        const wasActive = section.classList.contains('active');
+        event.preventDefault();
+
+        const isActive = section.classList.contains('active');
 
         menuSections.forEach(item => {
             item.classList.remove('active');
         });
 
-        if (!wasActive) {
+        if (!isActive) {
             section.classList.add('active');
         }
 
@@ -545,7 +584,152 @@ menuSections.forEach(section => {
 
 });
 
+
+
+/* POKAZYWANIE JEDNEGO PROJEKTU */
+
+const projectLinks = document.querySelectorAll('[data-project]');
+const projects = document.querySelectorAll('.project');
+const simpleSections = document.querySelectorAll('.simple-section');
+
+
+projectLinks.forEach(link => {
+
+    link.addEventListener('click', function(event) {
+
+        event.preventDefault();
+
+        const projectId = link.getAttribute('data-project');
+
+        /* chowamy wszystkie projekty */
+
+        projects.forEach(project => {
+            project.classList.remove('active');
+        });
+
+        /* chowamy Prints i Contact */
+
+        simpleSections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        /* pokazujemy tylko wybrany projekt */
+
+        const selectedProject = document.getElementById(projectId);
+
+        if (selectedProject) {
+
+            selectedProject.classList.add('active');
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        }
+
+    });
+
+});
+
+
+
+/* PRINTS */
+
+const menuToggles = document.querySelectorAll('.menu-toggle');
+
+menuToggles.forEach(toggle => {
+
+    toggle.addEventListener('click', function() {
+
+        const text = toggle.textContent.trim();
+
+        if (text === 'Prints') {
+
+            projects.forEach(project => {
+                project.classList.remove('active');
+            });
+
+            simpleSections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            document.getElementById('prints').classList.add('active');
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        }
+
+    });
+
+});
+
+
+
+/* CONTACT */
+
+menuToggles.forEach(toggle => {
+
+    toggle.addEventListener('click', function() {
+
+        const text = toggle.textContent.trim();
+
+        if (text === 'Contact') {
+
+            projects.forEach(project => {
+                project.classList.remove('active');
+            });
+
+            simpleSections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            document.getElementById('contact').classList.add('active');
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        }
+
+    });
+
+});
+
+
+
+/* ANIA BAJOREK — POWRÓT DO PUSTEJ STRONY */
+
+document.getElementById('home-link').addEventListener('click', function(event) {
+
+    event.preventDefault();
+
+    projects.forEach(project => {
+        project.classList.remove('active');
+    });
+
+    simpleSections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    menuSections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+});
+
+
 </script>
+
 
 </body>
 
