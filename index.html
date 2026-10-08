@@ -1,30 +1,61 @@
 <!DOCTYPE html>
-<html lang="pl">
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ania Bajorek — Photographer &amp; Director</title>
+<meta name="description" content="Ania Bajorek — photographer and director based in Warsaw. Commercial, music video, social campaigns and photography projects.">
+<link rel="canonical" href="https://TWOJ-ADRES-STRONY/">
+<meta name="author" content="Ania Bajorek">
 
-<title>Ania Bajorek — Photographer & Director</title>
+<!-- Podgląd przy udostępnianiu -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ania Bajorek">
+<meta property="og:title" content="Ania Bajorek — Photographer &amp; Director">
+<meta property="og:description" content="Photographer and director based in Warsaw. Commercial, music video, social campaigns and photography projects.">
+<meta property="og:url" content="https://TWOJ-ADRES-STRONY/">
+<meta property="og:image" content="https://TWOJ-ADRES-STRONY/images/commercial-01.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ania Bajorek — Photographer &amp; Director">
+<meta name="twitter:description" content="Photographer and director based in Warsaw. Commercial, music video, social campaigns and photography projects.">
+<meta name="twitter:image" content="https://TWOJ-ADRES-STRONY/images/commercial-01.jpg">
+
+<!-- Dane dla Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ania Bajorek",
+  "jobTitle": "Photographer and Director",
+  "url": "https://TWOJ-ADRES-STRONY/",
+  "image": "https://TWOJ-ADRES-STRONY/images/commercial-01.jpg",
+  "email": "mailto:annabajorek@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Warsaw",
+    "addressCountry": "PL"
+  },
+  "sameAs": [
+    "https://vimeo.com/aniabajorek",
+    "https://www.instagram.com/ania_bajorek/"
+  ]
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>A</text></svg>">
 
 <style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-/* =========================
-   PODSTAWOWE
-   ========================= */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+:root {
+    --media-h: min(1369px, 85vh);
 }
 
 body {
     margin: 0;
-    background: white;
+    background: #fff;
     color: #111;
     font-family: "Times New Roman", Times, serif;
     font-size: 16px;
@@ -40,11 +71,13 @@ a:hover {
     text-decoration: underline;
 }
 
+a:focus-visible,
+button:focus-visible {
+    outline: 1px solid #111;
+    outline-offset: 3px;
+}
 
-/* =========================
-   MENU
-   ========================= */
-
+/* MENU */
 .menu {
     position: fixed;
     left: 25px;
@@ -54,7 +87,9 @@ a:hover {
 }
 
 .name {
-    margin-bottom: 35px;
+    margin: 0 0 35px;
+    font-size: inherit;
+    font-weight: normal;
 }
 
 .menu-section {
@@ -81,40 +116,64 @@ a:hover {
     margin-bottom: 3px;
 }
 
+.submenu a.current,
+.menu-toggle.current,
+.name a.current {
+    text-decoration: underline;
+}
 
-/* =========================
-   GŁÓWNA CZĘŚĆ
-   ========================= */
+/* VIMEO / INSTAGRAM */
+.social {
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    display: flex;
+    gap: 16px;
+}
 
+.social a {
+    display: block;
+    line-height: 0;
+}
+
+.social a:hover {
+    text-decoration: none;
+    opacity: .55;
+}
+
+.social svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* TREŚĆ */
 main {
     margin-left: 240px;
     padding: 25px 30px 100px 0;
 }
 
-
-/* =========================
-   PROJEKTY
-   ========================= */
-
-.project {
+.view {
     display: none;
-    margin-bottom: 100px;
 }
 
-.project.active {
+.view.active {
     display: block;
 }
 
 .project-title {
-    margin-bottom: 18px;
+    margin: 0 0 18px;
     font-size: 18px;
+    font-weight: normal;
 }
 
+.project-desc {
+    max-width: 600px;
+    margin: -6px 0 24px;
+    white-space: pre-line;
+}
 
-/* =========================
-   ZDJĘCIA POZIOMO
-   ========================= */
-
+/* GALERIA POZIOMO */
 .project-images {
     display: flex;
     flex-wrap: nowrap;
@@ -124,25 +183,34 @@ main {
     padding-bottom: 5px;
 }
 
-.project-images img {
+.project-images img,
+.project-images video {
     display: block;
+    flex: none;
     width: auto;
-    height: 70vh;
+    height: var(--media-h);
     max-width: none;
     object-fit: contain;
+    background: #f4f4f4;
 }
 
-
-/* =========================
-   PRINTS / CONTACT
-   ========================= */
-
-.simple-section {
-    display: none;
+.project-images img {
+    min-width: 20vw;
 }
 
-.simple-section.active {
+.project-images video {
+    min-width: 0;
+    background: #000;
+}
+
+.project-images iframe {
     display: block;
+    flex: none;
+    width: min(calc(var(--media-h) * 16 / 9), 100%);
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    background: #000;
 }
 
 .contact {
@@ -150,12 +218,15 @@ main {
     font-size: 18px;
 }
 
-
-/* =========================
-   MOBILE
-   ========================= */
+.note {
+    max-width: 500px;
+    font-size: 18px;
+}
 
 @media (max-width: 700px) {
+    :root {
+        --media-h: min(1369px, 60vh);
+    }
 
     .menu {
         position: relative;
@@ -169,359 +240,128 @@ main {
         margin-bottom: 25px;
     }
 
+    .social {
+        position: static;
+        margin-top: 10px;
+    }
+
     main {
         margin-left: 0;
         padding: 20px;
     }
-
-    .project {
-        margin-bottom: 60px;
-    }
-
-    .project-images {
-        overflow-x: auto;
-    }
-
-    .project-images img {
-        height: 60vh;
-    }
-
 }
 
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
 </style>
-
 </head>
-
 
 <body>
 
+<nav class="menu" aria-label="Menu główne">
 
-<!-- =========================
-     MENU
-     ========================= -->
-
-<nav class="menu">
-
-
-    <div class="name">
+    <h1 class="name">
         <a href="#" id="home-link">ANIA BAJOREK</a>
-    </div>
-
-
-    <!-- FILM -->
+    </h1>
 
     <div class="menu-section">
-
-        <a href="#" class="menu-toggle">
-            Film
-        </a>
+        <a href="#" class="menu-toggle">Film</a>
 
         <div class="submenu">
-
-            <a href="#" data-project="commercial">
-                Commercial
-            </a>
-
-            <a href="#" data-project="music-video">
-                Music video
-            </a>
-
-            <a href="#" data-project="social">
-                Social campaign
-            </a>
-
+            <a href="#commercial">Commercial</a>
+            <a href="#music-video">Music video</a>
+            <a href="#social">Social campaign</a>
         </div>
-
     </div>
 
-
-    <!-- PHOTOGRAPHY -->
-
     <div class="menu-section">
-
-        <a href="#" class="menu-toggle">
-            Photography
-        </a>
+        <a href="#" class="menu-toggle">Photography</a>
 
         <div class="submenu">
-
-            <a href="#" data-project="commercial-photo">
-                Commercial folio
-            </a>
-
-            <a href="#" data-project="la-casa-violeta">
-                La Casa Violeta
-            </a>
-
-            <a href="#" data-project="where-wild-things">
-                Where the Wild Things Are
-            </a>
-
-            <a href="#" data-project="pocket-pieces">
-                Pocket Pieces
-            </a>
-
-            <a href="#" data-project="zodrak">
-                Zodrak
-            </a>
-
-            <a href="#" data-project="two-plus-one">
-                2i1
-            </a>
-
-            <a href="#" data-project="restuchemistry">
-                Restuchemistry
-            </a>
-
+            <a href="#commercial-photo">Commercial folio</a>
+            <a href="#pocket-pieces">Pocket Pieces</a>
+            <a href="#where-wild-things">Where the Wild Things Are</a>
+            <a href="#juice">Juice</a>
+            <a href="#two-plus-one">2i1</a>
+            <a href="#zodrak">Zodrak</a>
+            <a href="#la-casa-violeta">La Casa Violeta</a>
+            <a href="#restuchemistry">Restuchemistry</a>
         </div>
-
     </div>
 
-
-    <!-- PRINTS -->
+    <div class="menu-section">
+        <a href="#prints" class="menu-toggle">Prints</a>
+    </div>
 
     <div class="menu-section">
+        <a href="#contact" class="menu-toggle">Contact</a>
+    </div>
 
-        <a href="#" class="menu-toggle">
-            Prints
+    <div class="social">
+
+        <a href="https://vimeo.com/aniabajorek"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Vimeo"
+           title="Vimeo">
+
+            <svg viewBox="0 0 24 24"
+                 fill="currentColor"
+                 aria-hidden="true">
+
+                <path d="M23.9765 6.4168c-.105 2.338-1.739 5.5429-4.894 9.6088-3.2679 4.247-6.0258 6.3699-8.2898 6.3699-1.409 0-2.578-1.294-3.553-3.881l-1.9179-7.1138c-.719-2.584-1.488-3.878-2.312-3.878-.179 0-.806.378-1.8809 1.132l-1.129-1.457a315.06 315.06 0 003.501-3.1279c1.579-1.368 2.765-2.085 3.5539-2.159 1.867-.18 3.016 1.1 3.447 3.838.465 2.953.789 4.789.971 5.5069.5389 2.45 1.1309 3.674 1.7759 3.674.502 0 1.256-.796 2.265-2.385 1.004-1.589 1.54-2.797 1.612-3.628.144-1.371-.395-2.061-1.614-2.061-.574 0-1.167.121-1.777.391 1.186-3.868 3.434-5.757 6.762-5.637 2.473.06 3.628 1.664 3.493 4.797l-.013.01z"/>
+            </svg>
+        </a>
+
+        <a href="https://www.instagram.com/ania_bajorek/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Instagram"
+           title="Instagram">
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 aria-hidden="true">
+
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1"
+                        fill="currentColor"
+                        stroke="none"/>
+            </svg>
         </a>
 
     </div>
-
-
-    <!-- CONTACT -->
-
-    <div class="menu-section">
-
-        <a href="#" class="menu-toggle">
-            Contact
-        </a>
-
-    </div>
-
 
 </nav>
 
-
-
-<!-- =========================
-     TREŚĆ
-     ========================= -->
-
 <main id="content">
 
+    <div class="view" id="prints">
 
-    <!-- FILM / COMMERCIAL -->
+        <h2 class="project-title">Prints</h2>
 
-    <div class="project" id="commercial">
-
-        <div class="project-title">
-            Commercial
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/film-commercial-01.jpg" alt="">
-            <img src="images/film-commercial-02.jpg" alt="">
-            <img src="images/film-commercial-03.jpg" alt="">
-            <img src="images/film-commercial-04.jpg" alt="">
-
-        </div>
+        <p class="note">
+            Prints are available on request.<br>
+            <a href="mailto:annabajorek@gmail.com">
+                annabajorek@gmail.com
+            </a>
+        </p>
 
     </div>
 
-
-    <!-- FILM / MUSIC VIDEO -->
-
-    <div class="project" id="music-video">
-
-        <div class="project-title">
-            Music video
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/music-video-01.jpg" alt="">
-            <img src="images/music-video-02.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- FILM / SOCIAL -->
-
-    <div class="project" id="social">
-
-        <div class="project-title">
-            Social campaign
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/social-01.jpg" alt="">
-            <img src="images/social-02.jpg" alt="">
-            <img src="images/social-03.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- PHOTOGRAPHY / COMMERCIAL -->
-
-    <div class="project" id="commercial-photo">
-
-        <div class="project-title">
-            Commercial folio
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/commercial-01.jpg" alt="">
-            <img src="images/commercial-02.jpg" alt="">
-            <img src="images/commercial-03.jpg" alt="">
-            <img src="images/commercial-04.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- LA CASA VIOLETA -->
-
-    <div class="project" id="la-casa-violeta">
-
-        <div class="project-title">
-            La Casa Violeta
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/casa-violeta-01.jpg" alt="">
-            <img src="images/casa-violeta-02.jpg" alt="">
-            <img src="images/casa-violeta-03.jpg" alt="">
-            <img src="images/casa-violeta-04.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- WHERE THE WILD THINGS ARE -->
-
-    <div class="project" id="where-wild-things">
-
-        <div class="project-title">
-            Where the Wild Things Are
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/wild-things-01.jpg" alt="">
-            <img src="images/wild-things-02.jpg" alt="">
-            <img src="images/wild-things-03.jpg" alt="">
-            <img src="images/wild-things-04.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- POCKET PIECES -->
-
-    <div class="project" id="pocket-pieces">
-
-        <div class="project-title">
-            Pocket Pieces
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/pocket-01.jpg" alt="">
-            <img src="images/pocket-02.jpg" alt="">
-            <img src="images/pocket-03.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- ZODRAK -->
-
-    <div class="project" id="zodrak">
-
-        <div class="project-title">
-            Zodrak
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/zodrak-01.jpg" alt="">
-            <img src="images/zodrak-02.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- 2i1 -->
-
-    <div class="project" id="two-plus-one">
-
-        <div class="project-title">
-            2i1
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/2i1-01.jpg" alt="">
-            <img src="images/2i1-02.jpg" alt="">
-            <img src="images/2i1-03.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- RESTUCHEMISTRY -->
-
-    <div class="project" id="restuchemistry">
-
-        <div class="project-title">
-            Restuchemistry
-        </div>
-
-        <div class="project-images">
-
-            <img src="images/restuchemistry-01.jpg" alt="">
-            <img src="images/restuchemistry-02.jpg" alt="">
-
-        </div>
-
-    </div>
-
-
-    <!-- PRINTS -->
-
-    <div class="simple-section" id="prints">
-
-        <div class="project-title">
-            Prints
-        </div>
-
-    </div>
-
-
-    <!-- CONTACT -->
-
-    <div class="simple-section" id="contact">
+    <div class="view" id="contact">
 
         <div class="contact">
 
             <p>
                 Ania Bajorek<br>
-                Photographer & Director
+                Photographer &amp; Director
             </p>
 
             <p>
@@ -529,15 +369,22 @@ main {
             </p>
 
             <p>
-                <a href="mailto:hello@aniabajorek.com">
-                    hello@aniabajorek.com
+                <a href="mailto:annabajorek@gmail.com">
+                    annabajorek@gmail.com
                 </a>
             </p>
 
             <p>
-                <a
-                    href="https://www.instagram.com/ania_bajorek/"
-                    target="_blank">
+                <a href="https://vimeo.com/aniabajorek"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Vimeo
+                </a>
+                <br>
+
+                <a href="https://www.instagram.com/ania_bajorek/"
+                   target="_blank"
+                   rel="noopener noreferrer">
                     Instagram
                 </a>
             </p>
@@ -546,191 +393,590 @@ main {
 
     </div>
 
-
 </main>
-
-
-
-<!-- =========================
-     JAVASCRIPT
-     ========================= -->
 
 <script>
 
+/* =========================================================
+   PROJEKTY
 
-/* MENU — OTWIERANIE / ZAMYKANIE */
+   FILMY:
+   Commercial / Music video / Social campaign
+   mogą korzystać z bezpośrednich linków pCloud.
 
-const menuSections = document.querySelectorAll('.menu-section');
+   Przykład:
+
+   files: [
+       "https://filedn.eu/...../film.mp4",
+       "https://filedn.eu/...../film2.mp4"
+   ]
+
+   ZDJĘCIA:
+   pozostałe projekty nadal korzystają z:
+
+   prefix + n
+   czyli:
+   images/pocket-pieces-01.jpg
+   images/pocket-pieces-02.jpg
+   itd.
+
+   Możesz też użyć "files" dla zdjęć, jeśli kiedyś będzie taka potrzeba.
+
+   ========================================================= */
+
+
+const PROJECTS = [
+
+    /* =====================================================
+       FILM — PCLOUD
+       ===================================================== */
+
+    {
+        id: "commercial",
+        title: "Commercial",
+
+        /* PCLOUD — TU WKLEJASZ LINKI DO FILMÓW */
+
+        files: [
+            "https://filedn.eu/liFl4DsfQDlb6Ula1NCBo4y/Natalia_Przybysz_OGIEN_1920x1080_BEZcenzury_online_ProResHQ-20Mbps_napisy_v2.mp4"
+        ]
+    },
+
+    {
+        id: "music-video",
+        title: "Music video",
+
+        /* PCLOUD — TU WKLEJASZ LINKI DO FILMÓW */
+
+        files: [
+            /* "https://filedn.eu/...../film.mp4", */
+            /* "https://filedn.eu/...../film2.mp4" */
+        ]
+    },
+
+    {
+        id: "social",
+        title: "Social campaign",
+
+        /* PCLOUD — TU WKLEJASZ LINKI DO FILMÓW */
+
+        files: [
+            /* "https://filedn.eu/...../film.mp4", */
+            /* "https://filedn.eu/...../film2.mp4" */
+        ]
+    },
+
+
+    /* =====================================================
+       PHOTOGRAPHY
+       ===================================================== */
+
+    {
+        id: "commercial-photo",
+        title: "Commercial folio",
+        prefix: "commercial",
+        n: 4
+    },
+
+    {
+        id: "la-casa-violeta",
+        title: "La Casa Violeta",
+        prefix: "casa-violeta",
+        n: 4
+    },
+
+    {
+        id: "where-wild-things",
+        title: "Where the Wild Things Are",
+        prefix: "wild-things",
+        n: 4
+    },
+
+    {
+        id: "pocket-pieces",
+        title: "Pocket Pieces",
+        prefix: "pocket-pieces",
+        n: 26
+    },
+
+    {
+        id: "zodrak",
+        title: "Zodrak",
+        prefix: "zodrak",
+        n: 15
+    },
+
+    {
+        id: "two-plus-one",
+        title: "2i1",
+        prefix: "2i1",
+        n: 3
+    },
+
+    {
+        id: "restuchemistry",
+        title: "Restuchemistry",
+        prefix: "restuchemistry",
+        n: 2
+    },
+
+    {
+        id: "juice",
+        title: "Juice",
+        prefix: "juice",
+        n: 12
+    }
+
+];
+
+
+const DEFAULT_VIEW = "commercial-photo";
+
+const VIDEO_RE = /\.(mp4|webm|mov)$/i;
+
+const VIMEO_RE =
+    /vimeo\.com\/(?:video\/)?(\d+)(?:\/([a-z0-9]+))?/i;
+
+
+/* Gdzie leżą zdjęcia */
+
+const IMG_DIR = "images/";
+
+const main = document.getElementById("content");
+
+
+/* =========================================================
+   LISTA PLIKÓW
+   ========================================================= */
+
+function fileList(p) {
+
+    if (p.files) {
+        return p.files;
+    }
+
+    return Array.from(
+        { length: p.n },
+        (_, i) =>
+            `${IMG_DIR}${p.prefix}-${String(i + 1).padStart(2, "0")}.jpg`
+    );
+}
+
+
+/* =========================================================
+   BUDOWANIE PROJEKTÓW
+   ========================================================= */
+
+PROJECTS.forEach(p => {
+
+    const view = document.createElement("div");
+
+    view.className = "view";
+    view.id = p.id;
+
+
+    const title = document.createElement("h2");
+
+    title.className = "project-title";
+    title.textContent = p.title;
+
+
+    const gallery = document.createElement("div");
+
+    gallery.className = "project-images";
+
+
+    fileList(p).forEach((src, i) => {
+
+        let el;
+
+
+        /* VIMEO */
+
+        const vm = src.match(VIMEO_RE);
+
+        if (vm) {
+
+            el = document.createElement("iframe");
+
+            el.dataset.src =
+                "https://player.vimeo.com/video/" +
+                vm[1] +
+                (vm[2] ? "?h=" + vm[2] : "");
+
+            el.allow =
+                "autoplay; fullscreen; picture-in-picture";
+
+            el.allowFullscreen = true;
+
+            el.title =
+                `${p.title} — film ${i + 1}`;
+
+        }
+
+
+        /* MP4 / WEBM / MOV
+           w tym bezpośrednie linki z pCloud
+        */
+
+        else if (VIDEO_RE.test(src)) {
+
+            el = document.createElement("video");
+
+            el.src = src;
+
+            el.controls = true;
+
+            el.playsInline = true;
+
+            el.preload = "metadata";
+
+            el.setAttribute(
+                "aria-label",
+                `${p.title} — film ${i + 1}`
+            );
+
+        }
+
+
+        /* ZDJĘCIA */
+
+        else {
+
+            el = document.createElement("img");
+
+            el.src = src;
+
+            el.alt =
+                `${p.title} — zdjęcie ${i + 1}`;
+
+            el.decoding = "async";
+
+            el.loading =
+                i === 0 ? "eager" : "lazy";
+        }
+
+
+        gallery.appendChild(el);
+
+    });
+
+
+    /* KÓŁKO MYSZY → POZIOMY SCROLL */
+
+    gallery.tabIndex = 0;
+
+    gallery.addEventListener(
+        "wheel",
+        e => {
+
+            if (
+                e.shiftKey ||
+                Math.abs(e.deltaX) > Math.abs(e.deltaY)
+            ) {
+                return;
+            }
+
+            if (
+                gallery.scrollWidth <=
+                gallery.clientWidth
+            ) {
+                return;
+            }
+
+            e.preventDefault();
+
+            gallery.scrollLeft += e.deltaY;
+
+        },
+        { passive: false }
+    );
+
+
+    /* STRZAŁKI */
+
+    gallery.addEventListener(
+        "keydown",
+        e => {
+
+            if (e.key === "ArrowRight") {
+
+                gallery.scrollBy({
+                    left: gallery.clientWidth * 0.8,
+                    behavior: "smooth"
+                });
+
+            }
+
+            if (e.key === "ArrowLeft") {
+
+                gallery.scrollBy({
+                    left: -gallery.clientWidth * 0.8,
+                    behavior: "smooth"
+                });
+
+            }
+
+        }
+    );
+
+
+    view.append(title);
+
+
+    if (p.desc) {
+
+        const desc =
+            document.createElement("div");
+
+        desc.className = "project-desc";
+
+        desc.textContent = p.desc;
+
+        view.append(desc);
+
+    }
+
+
+    view.append(gallery);
+
+
+    main.insertBefore(
+        view,
+        document.getElementById("prints")
+    );
+
+});
+
+
+/* =========================================================
+   WYŚWIETLANIE WIDOKU
+   ========================================================= */
+
+const views =
+    document.querySelectorAll(".view");
+
+const menuSections =
+    document.querySelectorAll(".menu-section");
+
+const homeLink =
+    document.getElementById("home-link");
+
+
+function show() {
+
+    const id =
+        decodeURIComponent(
+            location.hash.slice(1)
+        ) || DEFAULT_VIEW;
+
+
+    const target =
+        document.getElementById(id);
+
+
+    const isView =
+        target &&
+        target.classList.contains("view");
+
+
+    const activeId =
+        isView ? id : DEFAULT_VIEW;
+
+
+    /* zatrzymaj filmy
+       w ukrytych projektach */
+
+    views.forEach(v => {
+
+        const on =
+            v.id === activeId;
+
+
+        v.classList.toggle(
+            "active",
+            on
+        );
+
+
+        if (!on) {
+
+            v.querySelectorAll("video")
+                .forEach(m => m.pause());
+
+        }
+
+
+        /* Vimeo */
+
+        v.querySelectorAll("iframe")
+            .forEach(f => {
+
+                const want =
+                    on
+                        ? f.dataset.src
+                        : "about:blank";
+
+
+                if (
+                    f.getAttribute("src") !== want
+                ) {
+
+                    f.setAttribute(
+                        "src",
+                        want
+                    );
+
+                }
+
+            });
+
+    });
+
+
+    /* podświetlenie menu */
+
+    document
+        .querySelectorAll(".menu a")
+        .forEach(a =>
+            a.classList.remove("current")
+        );
+
+
+    const link =
+        document.querySelector(
+            `.menu a[href="#${activeId}"]`
+        );
+
+
+    if (link) {
+        link.classList.add("current");
+    }
+
+
+    /* rozwinięcie odpowiedniej sekcji */
+
+    menuSections.forEach(
+        s => s.classList.remove("active")
+    );
+
+
+    if (link) {
+
+        const section =
+            link.closest(".menu-section");
+
+
+        if (
+            section &&
+            section.querySelector(".submenu")
+        ) {
+
+            section.classList.add("active");
+
+        }
+
+    }
+
+
+    window.scrollTo({
+        top: 0
+    });
+
+}
+
+
+/* =========================================================
+   FILM / PHOTOGRAPHY — ROZWIJANIE MENU
+   ========================================================= */
 
 menuSections.forEach(section => {
 
-    const toggle = section.querySelector('.menu-toggle');
+    const toggle =
+        section.querySelector(".menu-toggle");
 
-    toggle.addEventListener('click', function(event) {
 
-        event.preventDefault();
+    if (
+        !section.querySelector(".submenu")
+    ) {
+        return;
+    }
 
-        const isActive = section.classList.contains('active');
 
-        menuSections.forEach(item => {
-            item.classList.remove('active');
-        });
+    toggle.addEventListener(
+        "click",
+        e => {
 
-        if (!isActive) {
-            section.classList.add('active');
+            e.preventDefault();
+
+
+            const wasActive =
+                section.classList.contains(
+                    "active"
+                );
+
+
+            menuSections.forEach(
+                s =>
+                    s.classList.remove("active")
+            );
+
+
+            if (!wasActive) {
+
+                section.classList.add(
+                    "active"
+                );
+
+            }
+
         }
-
-    });
+    );
 
 });
 
 
+/* =========================================================
+   ANIA BAJOREK
+   ========================================================= */
 
-/* POKAZYWANIE JEDNEGO PROJEKTU */
+homeLink.addEventListener(
+    "click",
+    e => {
 
-const projectLinks = document.querySelectorAll('[data-project]');
-const projects = document.querySelectorAll('.project');
-const simpleSections = document.querySelectorAll('.simple-section');
-
-
-projectLinks.forEach(link => {
-
-    link.addEventListener('click', function(event) {
-
-        event.preventDefault();
-
-        const projectId = link.getAttribute('data-project');
-
-        /* chowamy wszystkie projekty */
-
-        projects.forEach(project => {
-            project.classList.remove('active');
-        });
-
-        /* chowamy Prints i Contact */
-
-        simpleSections.forEach(section => {
-            section.classList.remove('active');
-        });
-
-        /* pokazujemy tylko wybrany projekt */
-
-        const selectedProject = document.getElementById(projectId);
-
-        if (selectedProject) {
-
-            selectedProject.classList.add('active');
-
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-
-        }
-
-    });
-
-});
+        e.preventDefault();
 
 
+        if (location.hash) {
 
-/* PRINTS */
-
-const menuToggles = document.querySelectorAll('.menu-toggle');
-
-menuToggles.forEach(toggle => {
-
-    toggle.addEventListener('click', function() {
-
-        const text = toggle.textContent.trim();
-
-        if (text === 'Prints') {
-
-            projects.forEach(project => {
-                project.classList.remove('active');
-            });
-
-            simpleSections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            document.getElementById('prints').classList.add('active');
-
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            history.pushState(
+                null,
+                "",
+                location.pathname
+            );
 
         }
 
-    });
 
-});
+        show();
 
-
-
-/* CONTACT */
-
-menuToggles.forEach(toggle => {
-
-    toggle.addEventListener('click', function() {
-
-        const text = toggle.textContent.trim();
-
-        if (text === 'Contact') {
-
-            projects.forEach(project => {
-                project.classList.remove('active');
-            });
-
-            simpleSections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            document.getElementById('contact').classList.add('active');
-
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-
-        }
-
-    });
-
-});
+    }
+);
 
 
+/* =========================================================
+   HASH
+   ========================================================= */
 
-/* ANIA BAJOREK — POWRÓT DO PUSTEJ STRONY */
+window.addEventListener(
+    "hashchange",
+    show
+);
 
-document.getElementById('home-link').addEventListener('click', function(event) {
 
-    event.preventDefault();
-
-    projects.forEach(project => {
-        project.classList.remove('active');
-    });
-
-    simpleSections.forEach(section => {
-        section.classList.remove('active');
-    });
-
-    menuSections.forEach(section => {
-        section.classList.remove('active');
-    });
-
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-
-});
-
+show();
 
 </script>
 
-
 </body>
-
 </html>
